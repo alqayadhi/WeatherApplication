@@ -34,6 +34,9 @@ function weatherReport(data){
         document.getElementById('city').innerHTML = data.name+ ', ' + data.sys.country;
 
         document.getElementById('temperature').innerHTML = Math.floor(data.main.temp - 273)+ ' °C';
+
+        document.getElementById('clouds').innerHTML = data.weather[0].description;
+    
     })
 }
 
