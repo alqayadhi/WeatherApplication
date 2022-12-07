@@ -36,6 +36,11 @@ function weatherReport(data){
         document.getElementById('temperature').innerHTML = Math.floor(data.main.temp - 273)+ ' °C';
 
         document.getElementById('clouds').innerHTML = data.weather[0].description;
+
+        let icon = data.weather[0].icon;
+        let iconUrl = "http://api.openweathermap.org/img/w" + icon + '.png';
+
+        document.getElementById('img').src = iconUrl;
     
     })
 }
