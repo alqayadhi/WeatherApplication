@@ -93,6 +93,7 @@ main{
     padding: 2px 20px;
     border-radius: 15px;
     cursor: pointer;
+    text-transform: capitalize;
 }
 
 .next{
@@ -124,6 +125,7 @@ main{
 
 .desc{
     color: rgb(196,255,77);
+    text-transform: capitalize;
 }
 
 .divider1, .divider2{
