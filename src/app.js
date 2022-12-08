@@ -80,8 +80,8 @@ function hourForecast(forecast) {
 
 function dayForecast(forecast) {
     document.querySelector('.weekF').innerHTML = '';
-    for (let i = 0; i < forecast.list.length; i+=8) {
-        const element = array[i];
+    for (let i = 8; i < forecast.list.length; i+=8) {
+        console.log(forecast.list[i]);
         
     }
 }
