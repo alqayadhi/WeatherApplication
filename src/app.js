@@ -83,6 +83,13 @@ function dayForecast(forecast) {
     for (let i = 8; i < forecast.list.length; i+=8) {
         console.log(forecast.list[i]);
         
+        const div = document.createElement('div');
+        div.setAttribute('class', 'dayF');
+
+        const day = document.createElement('p');
+        day.setAttribute('class', 'date');
+        day.innerText = new Date(forecast.list[i].dt * 1000).toDateString(undefined, 'Europe/Amsterdam');
+        div.appendChild(day);        
     }
 }
 
