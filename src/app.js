@@ -80,9 +80,21 @@ function hourForecast(forecast) {
 
 function dayForecast(forecast) {
     document.querySelector('.weekF').innerHTML = '';
-    for (let i = 0; i < forecast.list.length; i+=8) {
-        const element = array[i];
+    for (let i = 8; i < forecast.list.length; i+=8) {
+        console.log(forecast.list[i]);
         
+        const div = document.createElement('div');
+        div.setAttribute('class', 'dayF');
+
+        const day = document.createElement('p');
+        day.setAttribute('class', 'date');
+        day.innerText = new Date(forecast.list[i].dt * 1000).toDateString(undefined, 'Europe/Amsterdam');
+        div.appendChild(day);   
+        
+        const temp = document.createElement('p');
+        temp.innerText = Math.floor(forecast.list[i].main.temp_max - 273)+ ' °C' + ' / '+ Math.floor(forecast.list[i].main.temp_min - 273)+ ' °C'; 
+        
+        div.appendChild(temp); 
     }
 }
 
