@@ -89,7 +89,12 @@ function dayForecast(forecast) {
         const day = document.createElement('p');
         day.setAttribute('class', 'date');
         day.innerText = new Date(forecast.list[i].dt * 1000).toDateString(undefined, 'Europe/Amsterdam');
-        div.appendChild(day);        
+        div.appendChild(day);   
+        
+        const temp = document.createElement('p');
+        temp.innerText = Math.floor(forecast.list[i].main.temp_max - 273)+ ' °C' + ' / '+ Math.floor(forecast.list[i].main.temp_min - 273)+ ' °C'; 
+        
+        div.appendChild(temp); 
     }
 }
 
