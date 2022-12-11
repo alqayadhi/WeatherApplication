@@ -20,6 +20,21 @@ window.addEventListener("load", () => {
     }
 })
 
+document.getElementById('search').addEventListener('click', () => {
+    const text = document.getElementById('input').value;
+    
+    var urlSearch = `http://api.openweathermap.org/data/2.5/weather?q=${text}&appid=${apiKey}`;
+
+    fetch(urlSearch)
+    .then(res => {
+        return res.json()
+    })
+    .then((data) => {
+        console.log(data);
+        weatherReport(data);
+    })
+})
+
 function weatherReport(data){
     const urlCast = `http://api.openweathermap.org/data/2.5/forecast?q=${data.name}&` + `appid=${apiKey}`;
     
@@ -93,8 +108,14 @@ function dayForecast(forecast) {
         
         const temp = document.createElement('p');
         temp.innerText = Math.floor(forecast.list[i].main.temp_max - 273)+ ' °C' + ' / '+ Math.floor(forecast.list[i].main.temp_min - 273)+ ' °C'; 
-        
         div.appendChild(temp); 
+
+        const description = document.createElement('p');
+        description.setAttribute('class', 'description');
+        description.innerText = forecast.list[i].weather[0].description; 
+        div.appendChild(description);
+        
+        document.querySelector('.weekF').appendChild(div);
     }
 }
 
